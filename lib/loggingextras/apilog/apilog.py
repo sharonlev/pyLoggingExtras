@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 from logging import NOTSET, Logger, basicConfig, getLogger
 from ..levels import *
-
+from json import dumps
 
 class Singleton(type):
     _instances = {}
@@ -49,7 +49,15 @@ def apilog(method, level=NOTSET):
         logger = logger or getBasicLogger()#BasicLogger(name='apilog', level=1)
 
         time_start = datetime.now()
-        logger.log(level, 'entering %s with wargs=%s, kwargs=%s' % (method_name, wargs if is_class_method or not self else tuple([self] +list(wargs)), kwargs))
+        logger.log(
+            level,
+            'entering %s with wargs=%s, kwargs=%s' %
+            (
+                method_name,
+                dumps(wargs if is_class_method or not self else tuple([self] +list(wargs)), ensure_ascii=False),
+                dumps(kwargs, ensure_ascii=False)
+            )
+        )
         try:
             retval = method(self, *wargs, **kwargs) if self else method(*wargs, **kwargs)
             time_end = datetime.now()

@@ -1,3 +1,5 @@
+# -*- coding=utf8 -*-
+
 __author__ = 'Sharon Lev'
 __email__ = 'sharon_lev@yahoo.com'
 __date__ = '10/25/16'
@@ -63,7 +65,14 @@ class test_apilog_methods(OutputSetter):
         method_debug_output(expected_output)
         self.validate_output(level, method, expected_output)
 
-
     def test__apilog_finer_named_param(self, level='FINER', method='apilog'):
         method_finer(param_b='something')
         self.validate_output(level, method, None, param_b='something')
+
+    def test_apilog_debug_non_ascii(self, level='DEBUG', method='apilog'):
+        method_debug('㆒㆓㆔㆕', param_b='㆕㆔㆓㆒')
+        self.validate_output(level, method, None, '㆒㆓㆔㆕', param_b='㆕㆔㆓㆒')
+
+    def test_apilog_debug_output_non_ascii(self, level='DEBUG', method='apilog'):
+        method_debug_output(param_a='㆒㆓㆔㆕')
+        self.validate_output(level, method, '㆒㆓㆔㆕', param_a='㆒㆓㆔㆕')
