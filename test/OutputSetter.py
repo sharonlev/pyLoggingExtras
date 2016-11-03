@@ -6,6 +6,7 @@ import sys
 from StringIO import StringIO
 from unittest import TestCase
 from logging import root
+from json import dumps
 
 class OutputSetter(TestCase):
     """
@@ -66,6 +67,6 @@ class OutputSetter(TestCase):
                 self.assertIn(str(value), output[1][1])
 
         if expected_output:
-            self.assertIn("%s" % expected_output, ":".join(output[2]))
+            self.assertIn("%s" % dumps(expected_output, ensure_ascii=False), ":".join(output[2]))
 
         return output

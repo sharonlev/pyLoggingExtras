@@ -68,7 +68,7 @@ def apilog(method, level=NOTSET):
             exit_message = '[%s: %s]' % (e.__class__.__name__, e)
             raise e
         finally:
-            logger.log(level, 'exiting %s with %s in [%s]' % (method_name, exit_message, time_end - time_start))
+            logger.log(level, 'exiting %s with %s in [%s]' % (method_name, dumps(exit_message, ensure_ascii=False), time_end - time_start))
     return decorator
 
 def apilog_finest(method):
