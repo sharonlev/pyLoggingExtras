@@ -79,7 +79,7 @@ params: {'k2': 2, 'k1': 1}
 DEBUG:apilog:exiting method_debug_output with {"k2": 2, "k1": 1} in [0:00:00.000107]
 ```
 
-**Example usage using class methods with a class logger availble:
+**Example usage using class methods with a class logger availble:**
 ```python
 from loggingextras.apilog import apilog_debug
 
@@ -91,7 +91,7 @@ class decorated_class_with_logger(object):
 
     @apilog_debug
     def method_a(self, param_a=None, param_b=None, param_c=None):
-        print 'params:', param_a, param_b, param_c
+        self.logger.info('params:', param_a, param_b, param_c)
         assert param_b != "exception", 'failed something'
 
 
@@ -103,8 +103,8 @@ if __name__ == "__main__":
 
 *Sample output:*
 ```
-DEBUG:decorated_class:entering method_a with wargs=[], kwargs={"param_b": "something"}
-params: None something None
-DEBUG:decorated_class:exiting method_a with null in [0:00:00.000090]
+DEBUG: decorated_class: entering method_a with wargs=[], kwargs={"param_b": "something"}
+INFO : decorated_class: params: None something None
+DEBUG: decorated_class: exiting method_a with null in [0:00:00.000090]
 
 ```
