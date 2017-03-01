@@ -4,7 +4,7 @@ __date__ = '10/25/16'
 
 import sys
 from .OutputSetter import OutputSetter
-from logging import DEBUG, basicConfig
+from logging import DEBUG, ERROR, basicConfig
 from src.loggingextras import NoneLogger
 
 class test_NoneLogger(OutputSetter):
@@ -20,6 +20,7 @@ class test_NoneLogger(OutputSetter):
         logger.error("error")
         logger.critical("critical")
         logger.exception("a message")
+        logger.log(level=ERROR, msg="an error message using log")
         self.assertEqual("", sys.stdout.getvalue())
 
         #validate the following is the only thing being printed out

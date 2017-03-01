@@ -25,3 +25,6 @@ class NoneLogger(Logger):
 
     def critical(self, msg, *args, **kwargs):
         pass
+
+    def log(self, level, msg, *args, **kwargs):
+        pass
