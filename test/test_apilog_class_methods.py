@@ -4,7 +4,7 @@ __date__ = '10/25/16'
 
 import sys
 from .OutputSetter import OutputSetter
-from lib.loggingextras.apilog import apilog_debug, apilog_finer
+from src.loggingextras.apilog import apilog_debug, apilog_finer
 from logging import basicConfig, getLogger
 
 class decorated_class_without_logger(object):

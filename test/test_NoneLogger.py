@@ -5,7 +5,7 @@ __date__ = '10/25/16'
 import sys
 from .OutputSetter import OutputSetter
 from logging import DEBUG, basicConfig
-from lib.loggingextras import NoneLogger
+from src.loggingextras import NoneLogger
 
 class test_NoneLogger(OutputSetter):
     """

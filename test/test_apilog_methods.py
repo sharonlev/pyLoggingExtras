@@ -6,7 +6,7 @@ __date__ = '10/25/16'
 
 import sys
 from .OutputSetter import OutputSetter
-from lib.loggingextras.apilog import apilog_debug, apilog_finer
+from src.loggingextras.apilog import apilog_debug, apilog_finer
 
 @apilog_debug
 def method_debug(param_a=None, param_b=None, param_c=None):

@@ -15,14 +15,15 @@ except:
 
 setup(
     name='loggingextras',
-    version='0.1',
-    packages= find_packages('lib'),
-    package_dir={'': 'lib'},
+    version='0.2.4',
+    packages= find_packages('src'),
+    package_dir={'': 'src'},
     url='https://github.com/sharonlev/pyLoggingExtras',
     license=lic,
     author='Sharon Lev',
     author_email='sharon_lev@yahoo.com',
     description='Extra Logging Functionality',
     long_description=readme,
-    test_suite='test'
+    test_suite='test',
+    zip_safe = False,
 )

@@ -4,8 +4,8 @@ __date__ = '10/26/16'
 
 import sys
 from logging import basicConfig, getLogger, StreamHandler, Formatter
-from lib.loggingextras import ApiLogger
-from lib.loggingextras.apilog import apilog_debug
+from src.loggingextras import ApiLogger
+from src.loggingextras.apilog import apilog_debug
 from .OutputSetter import OutputSetter
 
 
