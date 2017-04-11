@@ -63,12 +63,16 @@ def apilog(method, level=NOTSET):
             time_end = datetime.now()
             exit_message = retval
             return retval
-        except BaseException, e:
+        except BaseException as e:
             time_end = datetime.now()
             exit_message = '[%s: %s]' % (e.__class__.__name__, e)
-            raise e
+            raise
         finally:
-            logger.log(level, 'exiting %s with %s in [%s]' % (method_name, dumps(exit_message, ensure_ascii=False), time_end - time_start))
+            try:
+                logger.log(level, 'exiting %s with %s in [%s]' % (method_name, dumps(exit_message, ensure_ascii=False), time_end - time_start))
+            except:
+                logger.log(level, 'exiting %s with %s in [%s]' % (method_name, str(exit_message), time_end - time_start))
+
     return decorator
 
 def apilog_finest(method):
