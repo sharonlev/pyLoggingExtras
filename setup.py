@@ -15,7 +15,7 @@ except:
 
 setup(
     name='loggingextras',
-    version='0.3.1',
+    version='0.3.2',
     packages= find_packages('src'),
     package_dir={'': 'src'},
     url='https://github.com/sharonlev/pyLoggingExtras',
