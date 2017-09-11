@@ -90,7 +90,10 @@ def apilog(method, level=NOTSET):
                     )
                 )
 
-    return decorator
+    d = decorator
+    d.__name__ = method.__name__
+    d.__doc__ = method.__doc__
+    return d
 
 
 def apilog_finest(method):
